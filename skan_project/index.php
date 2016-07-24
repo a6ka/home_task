@@ -3,12 +3,13 @@
 //--------- Вспомогательные функции ----------
 //Функция получения массива из директорий
 function dirList($dir) {
+    $dirList = [];
     foreach (array_diff(scandir($dir), array('.', '..')) as $f) {
         if (is_dir($dir . '/' . $f)) {
-            $l[] = $f;
+            $dirList[] = $f;
         }
     }
-    return $l;
+    return $dirList;
 }
 
 //Функция преобразования данных в нужный формат
@@ -115,4 +116,4 @@ function showDirectoriesInfo($dir = '*', $format = 'json') {
     return formatEncode($output, $format);
 }
 
-echo showDirectoriesInfo();
+echo showDirectoriesInfo('folder2', 'json');
