@@ -1,0 +1,6 @@
+- Write a git command that displays the hash of the current revision:
+git rev-parse --verify HEAD
+
+
+- Write a git command that displays the code changes of the last 5 commits for the file index.php (in the current folder):
+git log -p -5 --reverce index.php
