@@ -115,4 +115,4 @@ function showDirectoriesInfo($dir = '*', $format = 'json') {
     return formatEncode($output, $format);
 }
 
-echo showDirectoriesInfo('folder2', 'json');
+echo showDirectoriesInfo();
