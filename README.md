@@ -86,3 +86,27 @@ string(14) "index.php - OK"
 
 C:\wamp\www\home_task\checker>
 ```
+
+### 3) Git: Хеш текущей доработки
+Запускать в Git Bash:
+```sh
+$ git rev-parse --verify HEAD
+```
+**Результат:**  
+```sh
+Alex@a6ka MINGW64 /c/wamp/www/home_task/checker (master)
+$ git rev-parse --verify HEAD
+6dbb09fd8a89ed709813cfb0fd628aa921c752fc
+```
+
+### 4) Git: Показать изменения последних 5 коммитов файла index.php
+Запускать в Git Bash:
+```sh
+$ git log -p -5 --reverce index.php
+```
+где:
+* _git log_ - показать лог
+* _-p_ - показать кодом
+* _-5_ - Сколько коммитов назад (от последнего) смотрим
+* _--reverce_ - Чисто для удобства показать от самого первого коммита к более поздним
+* _index.php_ - указываем файл, лог изменений которого смотрим
