@@ -39,7 +39,7 @@ The format of the return value of the function must be configurable (Array or JS
 
 # Решение:
 
-## 1) Первое задание (SSH)
+### 1) Консоль: чтение публичных SSH-ключей
 Проект в папке **ssh**
 При запуске проекта в браузере выдаст сообщение о ошибке ("Запускать только через консоль").  
 В консоле выполняется командой: 
@@ -53,4 +53,36 @@ php index.php
 ```sh
 C:\wamp\www\home_task\ssh>php index.php
 string(32) "id_rsa.pub: ssh-rsa AAAAB3NzaC1y"
+```
+
+### 2) Консоль: проверка синтаксиса всех *.php файлов в текущей директории
+Проект в папке **checker**  
+Скрипт проверки: checker.php
+
+**Порядок запуска:**  
+1. Поместить файл checker.php в проверяемую директорию  
+2. Открыть консоль в проверяемой папке
+3. Запустить файл checker.php командой:
+```sh
+php checker.php 
+```
+**Логика:**  
+1) Получается массив файлов/папок в текущей директории (scandir)  
+2) Из массива удаляется исполняющий файл checker.php  
+3) Удаляются все элементы, кроме файлов .php  
+4) Для каждого файла выполняется консольная команда проверки синтаксиса:
+```sh
+php -l filename.php
+```
+
+**Результат для существующих файлов:**  
+```sh
+
+C:\wamp\www\home_task\checker>php checker.php
+string(49) "C:\wamp\www\home_task\checker - directory exists;"
+string(27) "file_with_error.php - ERROR"
+string(14) "hello.php - OK"
+string(14) "index.php - OK"
+
+C:\wamp\www\home_task\checker>
 ```
